@@ -1,6 +1,8 @@
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
   var self = this;
   var server = 'https://polar-retreat-61013.herokuapp.com/'
+  // var server = 'http://localhost:3000';
+
 
   function signup(userPass) {
 
