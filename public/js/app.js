@@ -1,5 +1,5 @@
 angular.module('budget-app')
-  // .controller('HomeController', HomeController)
+  .controller('HomeController', HomeController)
   .controller('AuthController', AuthController)
   // .controller('EventController', EventController)
   // .controller('BudgetController', BudgetController)

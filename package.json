@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/somebodie/Budget-App-FrontEnd#readme",
   "dependencies": {
-    "express": "^4.15.0"
+    "express": "^4.15.0",
+    "morgan": "^1.7.0"
   }
 }
