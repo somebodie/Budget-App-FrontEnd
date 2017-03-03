@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-function eventController() {
-=======
 function EventController($http) {
  var self = this;
  var server = 'https://polar-retreat-61013.herokuapp.com';
->>>>>>> 3700e7abcc0c3eba590b2222ec758908110073ff
+
 
  // var server = 'https://localhost:3000';
 

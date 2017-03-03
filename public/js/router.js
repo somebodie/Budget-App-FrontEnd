@@ -18,13 +18,13 @@ angular.module('budget-app', ['ui.router'])
     .state('event', {
       url: '/user/:userId/events',
       templateUrl: '/partials/user.html',
-      controller: 'EventController as event'
+      controller: 'EventController as event',
       parent: 'budget'
     });
-    .state('budget', {
-      url: '/:id', //'/user/:userId/events/:eventsID'
-      templateUrl: '/partials/events.html',
-      controller: 'BudgetController as budget'
-    });
+    // .state('budget', {
+    //   url: '/:ID/item' //'/user/:userId/events/:eventsID'
+    //   templateUrl: '/partials/events.html',
+    //   controller: 'BudgetController as budget'
+    // });
 
   }
