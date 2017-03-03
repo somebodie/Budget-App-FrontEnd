@@ -12,7 +12,13 @@ angular.module('budget-app', ['ui.router'])
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/partials/home.html'
+      templateUrl: '/partials/home.html',
+      controller: 'AuthController as auth'
+    })
+    .state('event', {
+      url: '/user/:userId/events',
+      templateUrl: '/partials/user.html',
+      controller: 'EventController as event'
     });
 
   }
