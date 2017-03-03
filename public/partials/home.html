@@ -27,9 +27,9 @@
 
    <div class="">
       <p>login</p>
-     <form ng-submit="auth.login(newUser)">
-       <input type="email" placeholder="email"  ng-model="newUser.email">
-       <input type="password" placeholder="password" ng-model="newUser.password">
+     <form ng-submit="auth.login(userInfo)">
+       <input type="email" placeholder="email"  ng-model="userInfo.email">
+       <input type="password" placeholder="password" ng-model="userInfo.password">
        <input type="submit" value="log in">
      </form>
 
