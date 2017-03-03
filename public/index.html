@@ -28,28 +28,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 </head>
+<body ng-controller="HomeController as home">
 <header>
   <nav>
      <div class="nav-wrapper teal lighten-2"  >
        <a href="#" class="brand-logo">Dude where is my wallet?</a>
        <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li><a href="sass.html">SignUp</a></li>
-         <li><a href="badges.html">Login</a></li>
-         <li><a href="collapsible.html">Logout</a></li>
+         <li><a id="myBtn" ng-click="home.signupModal()"  >Sign Up</a></li>
+         <li><a >Login</a></li>
+         <li><a >Log out</a></li>
        </ul>
      </div>
    </nav>
 </header>
 
 <main>
-  <body>
+
+      <ui-view>
 
 
+      </ui-view>
 
-
-      <ui-view> </ui-view>
-
-  </body>
 </main>
 <footer class="page-footer teal lighten-2">
     <!-- <div class="container">
@@ -76,5 +75,5 @@
       </div>
     </div>
   </footer>
-
+</body>
 </html>
