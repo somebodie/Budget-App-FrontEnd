@@ -2,7 +2,16 @@
 <div >
   <h1>this is the event partial</h1>
 
+  <p>Add event</p>
+ <form ng-submit="event.addEvent(event.newEvent, home.currentUser)">
+   <input type="text" placeholder="name"  ng-model="event.newEvent.name">
+   <input type="number" step="0.01" placeholder="125.50" ng-model="event.newEvent.budget">
+   <input type="submit" value="add event">
+ </form>
+
+
 </div>
+
 
 
 <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
