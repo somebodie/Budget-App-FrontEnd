@@ -28,13 +28,45 @@
    <div class="">
      <h1>This is where the homepage slideshow goes</h1>
    </div>
-
+   <!-- modal main div -->
    <div id="myModal" class="modal">
 
   <!-- Modal content -->
       <div class="modal-content">
         <span ng-click="home.closeSignupModal()" class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-      </div>
 
+        <form ng-submit="home.createUser(newUser)">
+          <input type="text"  placeholder="name" ng-model="newUser.name">
+          <input type="text" placeholder="email"  ng-model="newUser.email">
+          <input type="password" placeholder="password" ng-model="newUser.password">
+          <input type="submit" value="sign up">
+        </form>
+
+        <!-- form Content start -->
+        <!-- <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <a id="signupButton" class="waves-effect waves-light btn">sign up</a> -->
+        <!-- form content end -->
+      </div>
     </div>
+    <!-- modal main div end -->
