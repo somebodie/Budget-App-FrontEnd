@@ -1,23 +1,29 @@
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
   var self = this;
-  var server = 'http://localhost:3000'
+  var server = 'https://polar-retreat-61013.herokuapp.com/'
 
   function signup(userPass) {
+
+    console.log(userPass);
     $http.post(`${server}/users`, { user: userPass } )
       .then(function(response) {
-        $state.go('login');
+        console.log(response);
+        $state.go('home');
       });
   }
 
   function login(userPass) {
+
+    console.log(userPass);
     $http.post(`${server}/users/login`, { user: userPass } )
       .then(function(response) {
+        console.log(response);
         console.log(response.data)
         AuthTokenFactory.setToken(response.data.token)
 
         $scope.$emit('userLoggedIn', response.data.user);
         $rootScope.$emit('fetchData', response.data.user);
-        $state.go('gif');
+        $state.go('event', {userId: response.data.user.id });
     });
   }
 
@@ -25,7 +31,7 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
     AuthTokenFactory.setToken()
 
     $scope.$emit('userLoggedOut');
-    $state.go('index');
+    $state.go('home');
   }
 
   this.signup = signup;

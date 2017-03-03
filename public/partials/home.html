@@ -26,6 +26,13 @@
 
 
    <div class="">
+      <p>login</p>
+     <form ng-submit="auth.login(newUser)">
+       <input type="email" placeholder="email"  ng-model="newUser.email">
+       <input type="password" placeholder="password" ng-model="newUser.password">
+       <input type="submit" value="log in">
+     </form>
+
      <h1>This is where the homepage slideshow goes</h1>
    </div>
    <!-- modal main div -->
@@ -35,9 +42,9 @@
       <div class="modal-content">
         <span ng-click="home.closeSignupModal()" class="close">&times;</span>
 
-        <form ng-submit="home.createUser(newUser)">
+        <form ng-submit="auth.signup(newUser)">
           <input type="text"  placeholder="name" ng-model="newUser.name">
-          <input type="text" placeholder="email"  ng-model="newUser.email">
+          <input type="email" placeholder="email"  ng-model="newUser.email">
           <input type="password" placeholder="password" ng-model="newUser.password">
           <input type="submit" value="sign up">
         </form>
