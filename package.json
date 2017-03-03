@@ -1,0 +1,24 @@
+{
+  "name": "Budget-App-FrontEnd",
+  "version": "1.0.0",
+  "description": "- On the homepage you can create an event, add cost items, and see the budget, but if you want to save the user must login/signup - allows a user to create a personal account to keep track of multiple event budgets - when the user logs in, the user can create a new event and must enter starting budget - on login show event example (which they may delete later) - the user can add cost for the event and see the updated budget live - the user can update the cost of an item, and also see the updated budget - the user can delete cost and see their budget update - timeline - the user can delete entire events",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somebodie/Budget-App-FrontEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somebodie/Budget-App-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/somebodie/Budget-App-FrontEnd#readme",
+  "dependencies": {
+    "express": "^4.15.0"
+  }
+}
