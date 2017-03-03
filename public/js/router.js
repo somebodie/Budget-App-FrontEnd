@@ -8,4 +8,11 @@ angular.module('budget-app', ['ui.router'])
 
   function MainRouter($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/partials/home.html'
+    });
+
   }
