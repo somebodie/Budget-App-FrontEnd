@@ -36,7 +36,7 @@
        <ul id="nav-mobile" class="right hide-on-med-and-down">
          <li><a id="myBtn" ng-click="home.signupModal()"  >Sign Up</a></li>
          <li><a >Login</a></li>
-         <li><a >Log out</a></li>
+         <li ng-controller="AuthController as auth"><a ng-click="auth.logout()" >Log out</a></li>
        </ul>
      </div>
    </nav>
