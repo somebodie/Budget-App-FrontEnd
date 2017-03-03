@@ -1,0 +1,7 @@
+angular.module('budget-app')
+  // .controller('HomeController', HomeController)
+  .controller('AuthController', AuthController)
+  .controller('BudgetController', BudgetController)
+  .controller('EventController', EventController)
+  .factory('AuthTokenFactory', AuthTokenFactory)
+  .factory('AuthInterceptor', AuthInterceptor)

@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='budget-app'>
   <head>
     <meta charset="utf-8">
     <title>Budget-App</title>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <!-- Routes and App -->
+    <script  src="/scripts/router.js"></script>
+    <script  src="/scripts/app.js"></script>
+    <!-- FACTORIES -->
+    <script src="/scripts/factories/auth_interceptor.js"></script>
+    <script src="/scripts/factories/auth_token_factory.js"></script>
+    <!-- Controllers -->
+    <script src="/js/controllers/BudgetController.js"></script>
+    <script src="/js/controllers/AuthController.js"></script>
+    <script src="/js/controllers/EventController.js"></script>
     <link rel="stylesheet" href="/css/master.css">
   </head>
   <body>
-{{2+2}}
+    <nav>
+
+    </nav>
+    <p>Hello World!</p>
+    {{2+2}}
 <ui-view> </ui-view>
+<footer></footer>
   </body>
 </html>
