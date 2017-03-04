@@ -1,12 +1,14 @@
-angular.module('budget-app', ['ui.router'])
-  // .config(authInterceptor)
+angular.module('budget-app', ['ui.materialize', 'ui.router',])
+  .config(authInterceptor)
   .config(MainRouter);
 
-  // function authInterceptor($httpProvider) {
-  //   $httpProvider.interceptors.push('AuthInterceptor')
-  // }
+  MainRouter.$inject = ['$urlRouterProvider','$stateProvider'];
 
-  function MainRouter($stateProvider, $urlRouterProvider) {
+  function authInterceptor($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor')
+  }
+
+  function MainRouter($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
@@ -18,8 +20,8 @@ angular.module('budget-app', ['ui.router'])
     .state('event', {
       url: '/user/:userId/events',
       templateUrl: '/partials/user.html',
-      controller: 'EventController as event',
-      parent: 'budget'
+      controller: 'EventController as event'
+      // parent: 'budget'
     });
     // .state('budget', {
     //   url: '/:ID/item' //'/user/:userId/events/:eventsID'

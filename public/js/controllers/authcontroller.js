@@ -10,6 +10,8 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
     $http.post(`${server}/users`, { user: userPass } )
       .then(function(response) {
         console.log(response);
+        //clear ng-model variable on the signup form on home.html
+        self.newUser={};
         $state.go('home');
       });
   }

@@ -2,78 +2,46 @@
 <!-- slideshow -->
 
 
-<!-- <div class="carousel carousel-slider center" data-indicators="true">
-    <div class="carousel-fixed-item center">
-      <a class="btn waves-effect white grey-text darken-text-2">button</a>
-    </div>
-    <div class="carousel-item red white-text" href="#one!">
-      <h2>First Panel</h2>
-      <p class="white-text">This is your first panel</p>
-    </div>
-    <div class="carousel-item amber white-text" href="#two!">
-      <h2>Second Panel</h2>
-      <p class="white-text">This is your second panel</p>
-    </div>
-    <div class="carousel-item green white-text" href="#three!">
-      <h2>Third Panel</h2>
-      <p class="white-text">This is your third panel</p>
-    </div>
-    <div class="carousel-item blue white-text" href="#four!">
-      <h2>Fourth Panel</h2>
-      <p class="white-text">This is your fourth panel</p>
-    </div>
-  </div> -->
+  <div class="carousel">
+  <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
+  <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
+  <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
+  <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+  <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+</div>
 
 
    <div class="">
-      <p>login</p>
-     <form ng-submit="auth.login(userInfo)">
-       <input type="email" placeholder="email"  ng-model="userInfo.email">
-       <input type="password" placeholder="password" ng-model="userInfo.password">
-       <input type="submit" value="log in">
-     </form>
-
-     <h1>This is where the homepage slideshow goes! sdfksjdglkgdlkdjs</h1>
+     <h1>This is where the homepage slideshow goes!</h1>
    </div>
-   <!-- modal main div -->
-   <div id="myModal" class="modal">
 
-  <!-- Modal content -->
+<!-- Signup Modal content -->
+   <div id="signupModal" class="modal">
       <div class="modal-content">
-        <span ng-click="home.closeSignupModal()" class="close">&times;</span>
+        <span ng-click="home.closeHomeModal('signup')" class="close">&times;</span>
 
-        <form ng-submit="auth.signup(newUser)">
-          <input type="text"  placeholder="name" ng-model="newUser.name">
-          <input type="email" placeholder="email"  ng-model="newUser.email">
-          <input type="password" placeholder="password" ng-model="newUser.password">
+        <form ng-submit="auth.signup(auth.newUser)">
+          <input type="text"  placeholder="name" ng-model="auth.newUser.name">
+          <input type="email" placeholder="email"  ng-model="auth.newUser.email">
+          <input type="password" placeholder="password" ng-model="auth.newUser.password">
           <input type="submit" value="sign up">
         </form>
 
-        <!-- form Content start -->
-        <!-- <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">Name</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-              </div>
-            </div>
-          </form>
-        </div>
-        <a id="signupButton" class="waves-effect waves-light btn">sign up</a> -->
-        <!-- form content end -->
       </div>
     </div>
     <!-- modal main div end -->
+
+   <!-- Login Modal content -->
+   <div id="loginModal" class="modal">
+       <div class="modal-content">
+         <span ng-click="home.closeHomeModal('login')" class="close">&times;</span>
+
+         <form ng-submit="auth.login(userInfo)">
+           <input type="email" placeholder="email"  ng-model="userInfo.email">
+           <input type="password" placeholder="password" ng-model="userInfo.password">
+           <input type="submit" value="log in">
+         </form>
+
+       </div>
+     </div>
+     <!-- modal main div end -->

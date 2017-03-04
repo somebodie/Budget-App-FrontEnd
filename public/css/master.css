@@ -1,24 +1,21 @@
-/** {
-  color: purple;
+html {
+  line-height: 0.5;
 }
 
-.nav {
-  background-color: white;
-}*/
+/*makes footer stick to bottom */
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+ }
 
-/*body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+ main {
+   flex: 1 0 auto;
+ }
 
-main {
-  flex: 1 0 auto;
-}*/
-
-a #signupButton{
-  text-align: center;
-}
+ .container {
+   width: 85%;
+ }
 
 /* The Modal (background) */
 .modal {
@@ -28,7 +25,7 @@ a #signupButton{
     left: 0;
     top: 6.6875em;
     width: 100%; /* Full width */
-    height: 70%; /* Full height */
+    height: 60%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
