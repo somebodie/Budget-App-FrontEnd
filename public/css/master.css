@@ -2,11 +2,9 @@ html {
   line-height: 0.5;
 }
 
-/*edit card line height*/
-/**, *:before, *:after {
-    box-sizing: inherit;
-    line-height: 2;
-}*/
+#eventDetails {
+  display: none;
+}
 
 /*makes footer stick to bottom */
 body {

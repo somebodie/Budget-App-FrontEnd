@@ -1,6 +1,6 @@
 <!-- events -->
 <div class="row">
-  <div  class="col s8">
+  <div id="events" class="col s12">
     <h6>Welcome {{home.currentUser.name}}</h6>
 
     <!-- <p>Add event</p>
@@ -32,7 +32,7 @@
               <a class="activator" ng-click="event.getEventDetails(el)">edit</a>
               <a ng-click="event.deleteEvent(el.user_id, el.id)">delete</a>
             </div>
-            <div class="card-reveal">
+            <!-- <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">Edit Event<i class="material-icons right"><i class="fa fa-times" aria-hidden="true"></i></i></span>
               <form>
                 <label for="name">name</label>
@@ -41,16 +41,19 @@
                 <input ng-model="event.budget" type="number" step="0.01">
                 <input type="submit" value="submit">
               </form>
-          </div>
+          </div> -->
           </div>
         </div>
       </div>
   </div>
 <!-- Event details  -->
-  <div  class="col s4">
-     <button ui-sref='budget'>events</button>
+  <div id="eventDetails"  class="col s4">
+    <button ui-sref='budget'>events</button>
     <h2>Here goes the event details</h2>
-      <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
+
+    <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
+
+    <button ng-click="event.closeEventDetails()">close</button>
   </div>
 
 </div>

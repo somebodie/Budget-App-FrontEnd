@@ -51,7 +51,22 @@ function EventController($http, $scope, $window) {
    self.budget = parseFloat(eventDetails.budget);
    console.log(self.name);
    console.log(typeof(self.budget));
+
+   //make div size smaller to display event details
+   $("#events").toggleClass("s12 s8");
+   //display event details div
+   $("#eventDetails").css("display", "block");
  }
+
+ function closeEventDetails() {
+   //hide event details div
+   $("#eventDetails").css("display", "none");
+
+   //make  event div bigger
+     $("#events").toggleClass("s8 s12");
+ }
+
+
 
  function editEvent(userId, eventId){
    console.log('hit editEvent');
@@ -72,6 +87,7 @@ function EventController($http, $scope, $window) {
 
  }
 
+ self.closeEventDetails = closeEventDetails;
  self.getEventDetails = getEventDetails;
  self.editEvent = editEvent;
  self.deleteEvent = deleteEvent;
