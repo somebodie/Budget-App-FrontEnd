@@ -1,4 +1,15 @@
 <!-- Acts as partial inside of user.html -->
+<h1>EVENT PARTIAL!</h1>
+
 {{home}}
+
 <button type="button" name="button" ng-click='budget.getItem(home.currentUser.event)'>GET ITEMS</button>
-<button type="button" name="button" ng-click='budget.newItem()'></button>
+<button type="button" name="button" ng-click='budget.newItem()'>NEW ITEM</button>
+<button type="button" name="button" ng-click='budget.showItem()'>SHOW ITEM</button>
+<button type="button" name="button" ng-click='budget.createItem()'>CREATE ITEM</button>
+<button type="button" name="button" ng-click='budget.updateItem()'>UPDATE ITEM</button>
+<button type="button" name="button" ng-click='budget.deleteItem()'>DELETE ITEM</button>
+
+{{home.event}}
+
+<h1>EVENT PARTIAL!</h1>

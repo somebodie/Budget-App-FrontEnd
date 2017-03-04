@@ -20,7 +20,6 @@ angular.module('budget-app', ['ui.materialize', 'ui.router',])
     .state('event', {
       url: '/user/events',
       templateUrl: '/partials/user.html',
-<<<<<<< HEAD
       controller: 'EventController as event',
     })
     .state('budget', {
@@ -28,16 +27,5 @@ angular.module('budget-app', ['ui.materialize', 'ui.router',])
       templateUrl: '/partials/events.html',
       controller: 'BudgetController as budget',
       parent: 'event'
-    })
-=======
-      controller: 'EventController as event'
-      // parent: 'budget'
     });
-    // .state('budget', {
-    //   url: '/:ID/item' //'/user/:userId/events/:eventsID'
-    //   templateUrl: '/partials/events.html',
-    //   controller: 'BudgetController as budget'
-    // });
-
->>>>>>> a0622f34fbb2cb7491de6627446ec79ffed6a485
   }

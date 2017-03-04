@@ -5,8 +5,8 @@ function BudgetController($http, $state, $scope, $rootScope) {
 
     // Item index page
   function getItem(eventInfo) {
-    // console.log('WE GETTING ITEMS!');
-
+    console.log('WE GETTING ITEMS!');
+    console.log(eventInfo);
     // $http.get(`${server}/users/:user_id/events/:event_id/items`)
     //       .then(function(response) {
     //         console.log(response);
@@ -26,41 +26,45 @@ function BudgetController($http, $state, $scope, $rootScope) {
 
     // Item show page
     function showItem() {
-      $http.get(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log('SHOW ME THE ITEM!');
+      // $http.get(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item Create page
     function createItem() {
-      $http.get(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("LET'S CREATE!");
+      // $http.get(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item update page
     function updateItem() {
-      $http.patch(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("NEED TO FIX SOMETHING!");
+      // $http.patch(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item update page
     function deleteItem() {
-      $http.delete(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("BYE BYE ITEM!");
+      // $http.delete(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 

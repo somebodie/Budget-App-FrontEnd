@@ -6,6 +6,7 @@
     <!-- <p>Add event</p>
     <a class="btn-floating btn-large waves-effect waves-light teal lighten-2"><i class="material-icons">+</i></a> -->
 
+    <!-- Add event bar -->
     <ul class="collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>  Add event</div>
@@ -19,11 +20,7 @@
       </li>
     </ul>
 
-<<<<<<< HEAD
-</div>
-
-<button ui-sref='budget'>events</button>
-=======
+    <!-- event cards -->
     <div class="row">
         <div ng-repeat="el in event.events" class="col s12 m6">
           <div class="card teal lighten-4">
@@ -32,18 +29,28 @@
               <span class="card-title">{{el.budget}}</span>
             </div>
             <div class="card-action">
-              <a href="#">edit</a>
+              <a class="activator" ng-click="event.getEventDetails(el)">edit</a>
               <a ng-click="event.deleteEvent(el.user_id, el.id)">delete</a>
             </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Edit Event<i class="material-icons right"><i class="fa fa-times" aria-hidden="true"></i></i></span>
+              <form>
+                <label for="name">name</label>
+                <input ng-model="event.name" name="name" type="text">
+                <label for="budget">budget</label>
+                <input ng-model="event.budget" type="number" step="0.01">
+                <input type="submit" value="submit">
+              </form>
+          </div>
           </div>
         </div>
       </div>
   </div>
-
+<!-- Event details  -->
   <div  class="col s4">
+     <button ui-sref='budget'>events</button>
     <h2>Here goes the event details</h2>
       <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
   </div>
->>>>>>> a0622f34fbb2cb7491de6627446ec79ffed6a485
 
 </div>
