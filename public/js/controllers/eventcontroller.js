@@ -5,6 +5,10 @@ function EventController($http, $scope, $window) {
  console.log($window.localStorage);
 
  function addEvent(eventInfo, currentUser){
+   //closes the add bar when add event button is clciked
+   $(".collapsible-header").removeClass("active");
+   $(".collapsible-body").css("display", "none");
+
    console.log(eventInfo);
    console.log(currentUser.id);
 
@@ -54,7 +58,7 @@ function EventController($http, $scope, $window) {
 
    //make div size smaller to display event details
    $("#events").toggleClass("s12 s8");
-
+   //make the cards bigger
    $(".eventCards").toggleClass("m4 m6");
    //display event details div
    $("#eventDetails").css("display", "block");
@@ -66,6 +70,8 @@ function EventController($http, $scope, $window) {
 
    //make  event div bigger
      $("#events").toggleClass("s8 s12");
+
+   //make the cards smaller
     $(".eventCards").toggleClass("m6 m4");
  }
 
