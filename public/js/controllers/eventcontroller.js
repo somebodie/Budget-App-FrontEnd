@@ -54,6 +54,8 @@ function EventController($http, $scope, $window) {
 
    //make div size smaller to display event details
    $("#events").toggleClass("s12 s8");
+
+   $(".eventCards").toggleClass("m4 m6");
    //display event details div
    $("#eventDetails").css("display", "block");
  }
@@ -64,6 +66,7 @@ function EventController($http, $scope, $window) {
 
    //make  event div bigger
      $("#events").toggleClass("s8 s12");
+    $(".eventCards").toggleClass("m6 m4");
  }
 
 
