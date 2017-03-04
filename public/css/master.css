@@ -2,6 +2,12 @@ html {
   line-height: 0.5;
 }
 
+/*edit card line height*/
+/**, *:before, *:after {
+    box-sizing: inherit;
+    line-height: 2;
+}*/
+
 /*makes footer stick to bottom */
 body {
    display: flex;
