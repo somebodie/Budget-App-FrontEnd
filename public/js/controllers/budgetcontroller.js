@@ -1,24 +1,27 @@
-function BudgetController($http, $state) {
+function BudgetController($http, $state, $scope, $rootScope) {
   var self = this;
   var server = 'https://polar-retreat-61013.herokuapp.com/'
 
 
     // Item index page
-  function getItem() {
-    $http.get(`${server}/users/:user_id/events/:event_id/items`)
-          .then(function(response) {
-            console.log(response);
-            $state.go('/items', {items: response})
-          })
+  function getItem(eventInfo) {
+    // console.log('WE GETTING ITEMS!');
+
+    // $http.get(`${server}/users/:user_id/events/:event_id/items`)
+    //       .then(function(response) {
+    //         console.log(response);
+    //         $state.go('/items', {items: response})
+    //       })
       }
 
     // Item new post
     function newItem() {
-      $http.post(`${server}/users/:user_id/events/:event_id/items`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {items: response})
-            })
+      console.log("I'd like a new item please");
+      // $http.post(`${server}/users/:user_id/events/:event_id/items`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {items: response})
+      //       })
         }
 
     // Item show page
