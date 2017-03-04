@@ -18,15 +18,14 @@ angular.module('budget-app', ['ui.materialize', 'ui.router',])
       controller: 'AuthController as auth'
     })
     .state('event', {
-      url: '/user/:userId/events',
+      url: '/user/events',
       templateUrl: '/partials/user.html',
-      controller: 'EventController as event'
-      // parent: 'budget'
+      controller: 'EventController as event',
+    })
+    .state('budget', {
+      url: '/item', // actual link is: /user/events/item
+      templateUrl: '/partials/events.html',
+      controller: 'BudgetController as budget',
+      parent: 'event'
     });
-    // .state('budget', {
-    //   url: '/:ID/item' //'/user/:userId/events/:eventsID'
-    //   templateUrl: '/partials/events.html',
-    //   controller: 'BudgetController as budget'
-    // });
-
   }

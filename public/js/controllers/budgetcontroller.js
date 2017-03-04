@@ -1,63 +1,70 @@
-function BudgetController($http, $state) {
+function BudgetController($http, $state, $scope, $rootScope) {
   var self = this;
   var server = 'https://polar-retreat-61013.herokuapp.com/'
 
 
     // Item index page
-  function getItem() {
-    $http.get(`${server}/users/:user_id/events/:event_id/items`)
-          .then(function(response) {
-            console.log(response);
-            $state.go('/items', {items: response})
-          })
+  function getItem(eventInfo) {
+    console.log('WE GETTING ITEMS!');
+    console.log(eventInfo);
+    // $http.get(`${server}/users/:user_id/events/:event_id/items`)
+    //       .then(function(response) {
+    //         console.log(response);
+    //         $state.go('/items', {items: response})
+    //       })
       }
 
     // Item new post
     function newItem() {
-      $http.post(`${server}/users/:user_id/events/:event_id/items`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {items: response})
-            })
+      console.log("I'd like a new item please");
+      // $http.post(`${server}/users/:user_id/events/:event_id/items`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {items: response})
+      //       })
         }
 
     // Item show page
     function showItem() {
-      $http.get(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log('SHOW ME THE ITEM!');
+      // $http.get(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item Create page
     function createItem() {
-      $http.get(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("LET'S CREATE!");
+      // $http.get(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item update page
     function updateItem() {
-      $http.patch(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("NEED TO FIX SOMETHING!");
+      // $http.patch(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
     // Item update page
     function deleteItem() {
-      $http.delete(`${server}/items/:id`)
-            .then(function(response) {
-              console.log(response);
-              $state.go('/items', {item: response})
-            })
+      console.log("BYE BYE ITEM!");
+      // $http.delete(`${server}/items/:id`)
+      //       .then(function(response) {
+      //         console.log(response);
+      //         $state.go('/items', {item: response})
+      //       })
         }
 
 
