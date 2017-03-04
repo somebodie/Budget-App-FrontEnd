@@ -1,17 +1,49 @@
 <!-- events -->
-<div >
-  <h1>this is the event partial</h1>
+<div class="row">
+  <div  class="col s8">
+    <h6>Welcome {{home.currentUser.name}}</h6>
 
-  <p>Add event</p>
- <form ng-submit="event.addEvent(event.newEvent, home.currentUser)">
-   <input type="text" placeholder="name"  ng-model="event.newEvent.name">
-   <input type="number" step="0.01" placeholder="125.50" ng-model="event.newEvent.budget">
-   <input type="submit" value="add event">
- </form>
+    <!-- <p>Add event</p>
+    <a class="btn-floating btn-large waves-effect waves-light teal lighten-2"><i class="material-icons">+</i></a> -->
 
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>  Add event</div>
+        <div class="collapsible-body">
+          <form ng-submit="event.addEvent(event.newEvent, home.currentUser)">
+           <input type="text" placeholder="name"  ng-model="event.newEvent.name">
+           <input type="number" step="0.01" placeholder="125.50" ng-model="event.newEvent.budget">
+           <input type="submit" value="add event">
+         </form>
+       </div>
+      </li>
+    </ul>
 
+<<<<<<< HEAD
 </div>
 
 <button ui-sref='budget'>events</button>
+=======
+    <div class="row">
+        <div ng-repeat="el in event.events" class="col s12 m6">
+          <div class="card teal lighten-4">
+            <div class="card-content white-text">
+              <span class="card-title">{{el.name}}</span>
+              <span class="card-title">{{el.budget}}</span>
+            </div>
+            <div class="card-action">
+              <a href="#">edit</a>
+              <a ng-click="event.deleteEvent(el.user_id, el.id)">delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 
-<ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
+  <div  class="col s4">
+    <h2>Here goes the event details</h2>
+      <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
+  </div>
+>>>>>>> a0622f34fbb2cb7491de6627446ec79ffed6a485
+
+</div>

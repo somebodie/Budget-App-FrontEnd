@@ -1,10 +1,8 @@
-function EventController($http) {
+function EventController($http, $scope, $window) {
  var self = this;
  var server = 'https://polar-retreat-61013.herokuapp.com';
-
-
- // var server = 'https://localhost:3000';
-
+ getEvents();
+ console.log($window.localStorage);
 
  function addEvent(eventInfo, currentUser){
    console.log(eventInfo);
@@ -22,9 +20,32 @@ function EventController($http) {
      newEvent )
    .then(function(response) {
      console.log(response);
+     //clear ng-model variable on the new event form on user.html
      self.newEvent = {};
+     //get updated events to dispay on user.html
+     getEvents();
    });
  }
 
- this.addEvent = addEvent;
+ function getEvents(currentUser){
+   $http.get(`${server}/users/${$window.localStorage.id}/events`)
+   .then(function(response) {
+     console.log(response);
+     self.events = response.data;
+   });
+ }
+
+ function deleteEvent(userId, eventId) {
+   console.log(userId);
+   console.log(eventId);
+   $http.delete(`${server}/users/${userId}/events/${eventId}`)
+   .then(function(response){
+     console.log(response);
+     getEvents();
+   });
+ }
+
+ self.deleteEvent = deleteEvent;
+ self.getEvents = getEvents;
+ self.addEvent = addEvent;
 }
