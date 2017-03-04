@@ -20,15 +20,15 @@
     </ul>
 
     <div class="row">
-        <div ng-repeat="event in event.events" class="col s12 m6">
+        <div ng-repeat="el in event.events" class="col s12 m6">
           <div class="card teal lighten-4">
             <div class="card-content white-text">
-              <span class="card-title">{{event.name}}</span>
-              <span class="card-title">{{event.budget}}</span>
+              <span class="card-title">{{el.name}}</span>
+              <span class="card-title">{{el.budget}}</span>
             </div>
             <div class="card-action">
               <a href="#">edit</a>
-              <a href="#">delete</a>
+              <a ng-click="event.deleteEvent(el.user_id, el.id)">delete</a>
             </div>
           </div>
         </div>
@@ -36,6 +36,7 @@
   </div>
 
   <div  class="col s4">
+    <h2>Here goes the event details</h2>
       <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
   </div>
 

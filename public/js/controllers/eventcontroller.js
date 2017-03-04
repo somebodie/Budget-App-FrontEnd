@@ -35,6 +35,17 @@ function EventController($http, $scope, $window) {
    });
  }
 
+ function deleteEvent(userId, eventId) {
+   console.log(userId);
+   console.log(eventId);
+   $http.destroy(`${server}/users/${userId}/events/${eventId}`)
+   .then(function(response){
+     console.log(response);
+     getEvents();
+   });
+ }
+
+ self.deleteEvent = deleteEvent;
  self.getEvents = getEvents;
  self.addEvent = addEvent;
 }
