@@ -1,4 +1,4 @@
-function EventController($http, $scope, $window) {
+function EventController($http, $scope, $window, $state) {
  var self = this;
  var server = 'https://polar-retreat-61013.herokuapp.com';
  getEvents();
@@ -52,10 +52,17 @@ function EventController($http, $scope, $window) {
 
  function getEventDetails(eventDetails) {
    console.log(eventDetails);
+   let store = $window.localStorage;
+   store.setItem('eventId', eventDetails.id);
+   store.setItem('eventBudgetTotal', parseFloat(eventDetails.budget));
    self.name = eventDetails.name;
    self.budget = parseFloat(eventDetails.budget);
+   self.eventId = eventDetails.id;
+
    console.log(self.name);
-   console.log(typeof(self.budget));
+   console.log(self.eventId);
+   console.log(self.budget);
+   console.log(store);
 
    //make div size smaller to display event details
    $("#events").toggleClass("s12 s8");
@@ -63,6 +70,8 @@ function EventController($http, $scope, $window) {
    $(".eventCards").toggleClass("m4 m6");
    //display event details div
    $("#eventDetails").css("display", "block");
+
+   $state.go('budget');
  }
 
  function closeEventDetails() {
@@ -74,6 +83,9 @@ function EventController($http, $scope, $window) {
 
    //make the cards smaller
     $(".eventCards").toggleClass("m6 m4");
+
+    store.removeItem('eventId');
+    store.removeItem('eventBudgetTotal');
  }
 
 
