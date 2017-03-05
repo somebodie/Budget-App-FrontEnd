@@ -1,6 +1,8 @@
 function BudgetController($http, $state, $scope, $rootScope, $window) {
   var self = this;
-  var server = 'https://polar-retreat-61013.herokuapp.com';
+  // var server = 'https://polar-retreat-61013.herokuapp.com';
+  var server = 'http://localhost:3000';
+
   self.option = false;
   getItems($window.localStorage.eventId, $window.localStorage.eventBudgetTotal );
   //   // Item index page
@@ -36,7 +38,7 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
       });
     }
 
-    function AddItemForm() {
+    function AddItemFormToggleShow() {
        self.option = !self.option;
       if(self.option == true){
         $('#addItem').css('display', 'block');
@@ -66,6 +68,7 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
         //clear ng-model newItem variable
         self.newItem = {};
         getItems($window.localStorage.eventId, $window.localStorage.eventBudgetTotal);
+        AddItemFormToggleShow();
         // self.items = response.data;
         // $state.go('/items', {items: response})
       });
@@ -117,7 +120,7 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
 
 
     // self.getItems = getItems;
-    self.AddItemForm = AddItemForm;
+    self.AddItemFormToggleShow = AddItemFormToggleShow;
     self.addItem = addItem;
     self.getItems = getItems;
     // self.createItem = createItem;
