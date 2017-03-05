@@ -1,6 +1,8 @@
 function EventController($http, $scope, $window, $state) {
  var self = this;
- var server = 'https://polar-retreat-61013.herokuapp.com';
+ // var server = 'https://polar-retreat-61013.herokuapp.com';
+ var server = 'http://localhost:3000';
+
  getEvents();
  console.log($window.localStorage);
 
@@ -75,6 +77,7 @@ function EventController($http, $scope, $window, $state) {
  }
 
  function closeEventDetails() {
+   let store = $window.localStorage;
    //hide event details div
    $("#eventDetails").css("display", "none");
 
