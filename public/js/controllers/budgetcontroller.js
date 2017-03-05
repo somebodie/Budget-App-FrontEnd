@@ -15,19 +15,6 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
   //         })
   // })
 
-<<<<<<< HEAD
-    // Item index page
-  $scope.$on('getEvent', function(event, events) {
-    console.log('WE GETTING ITEMS!');
-    console.log(events);
-
-    $http.get(`${server}/users/:currentUser_id/events/:event_id/items`)
-          .then(function(response) {
-            console.log(response);
-            $state.go('/items', {items: response})
-          })
-  })
-=======
     function getItems(eventId, eventBudgetTotal){
       console.log("hit get items");
       $http.get(`${server}/users/${$window.localStorage.id}/events/${eventId}/items`)
@@ -57,7 +44,6 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
         $('#addItem').css('display', 'none');
       }
     }
->>>>>>> 9fe599b6762affac211f1ea1def1478520943eb7
 
     // Item new post
     function addItem(newItem, currentUser) {
