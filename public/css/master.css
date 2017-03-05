@@ -2,6 +2,10 @@ html {
   line-height: 0.5;
 }
 
+#eventDetails {
+  display: none;
+}
+
 /*makes footer stick to bottom */
 body {
    display: flex;
@@ -16,6 +20,14 @@ body {
  .container {
    width: 85%;
  }
+
+ .container.carousel.carousel-slider {
+   width: 100%;
+ }
+
+ /*nav .brand-logo {
+   color: teal;
+ }*/
 
 /* The Modal (background) */
 .modal {
@@ -37,7 +49,7 @@ body {
     margin: 2% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */

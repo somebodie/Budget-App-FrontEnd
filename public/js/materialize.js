@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-  $('.carousel').carousel();
-  $(".button-collapse").sideNav();
+   $('.carousel-slider').carousel({fullWidth: true});
+   $(".button-collapse").sideNav();
    $('.collapsible').collapsible();
-})
+});

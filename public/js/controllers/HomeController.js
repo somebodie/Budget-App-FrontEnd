@@ -25,8 +25,10 @@ function HomeController($scope, $http, $window) {
 
   function openHomeModal(option){
     if (option == 'signup'){
+      closeSideNav();
       $("#signupModal").css("display", "block");
     }else {
+      closeSideNav();
       $("#loginModal").css("display", "block");
     }
   }
@@ -39,6 +41,12 @@ function HomeController($scope, $http, $window) {
     }
   }
 
+  function closeSideNav (){
+    $(".side-nav").css("transform", "translateX(-100%)");
+    $("#sidenav-overlay").css("opacity", "0");
+  }
+
+  self.closeSideNav =closeSideNav;
   self.closeHomeModal = closeHomeModal;
   self.openHomeModal= openHomeModal;
 }
