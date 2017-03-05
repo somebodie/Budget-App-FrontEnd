@@ -1,5 +1,5 @@
 <!-- events -->
-<div class="container">
+<div>
   <div class="row">
     <div id="events" class="col s12">
       <h6>Welcome {{home.currentUser.name}}</h6>
@@ -27,7 +27,7 @@
                 <span class="card-title">{{el.budget | currency}}</span>
               </div>
               <div class="card-action">
-                <a class="activator" ui-sref='budget' ng-click="event.getEventDetails(el)">edit</a>
+                <a class="activator" ng-click="event.getEventDetails(el)">edit</a>
                 <a ng-click="event.deleteEvent(el.user_id, el.id)">delete</a>
               </div>
               <!-- <div class="card-reveal">
@@ -43,16 +43,15 @@
             </div>
           </div>
         </div>
-      </div>
-  </div>
-<!-- Event details  -->
-  <div  class="col s4">
-    <button>events</button>
-    <h2>Here goes the event details</h2>
     </div>
+  <!-- Event details  -->
+    <div id="eventDetails"  class="col s4">
+      <!-- <button ui-sref='budget'>events</button> -->
+      <!-- <h2>Here goes the event details</h2> -->
+
       <ui-view> </ui-view> <!-- TODO: Will render partial events.html -->
 
-      <button ng-click="event.closeEventDetails()">close</button>
+      <!-- <button ng-click="event.closeEventDetails()">close</button> -->
     </div>
 
   </div>

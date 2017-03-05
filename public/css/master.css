@@ -2,7 +2,17 @@ html {
   line-height: 0.5;
 }
 
+div#eventDetails.col.s4 {
+  /*display: none;*/
+  height: 100%;
+}
+
 #eventDetails {
+  display: none;
+  height: 100%;
+}
+
+#addItem {
   display: none;
 }
 
