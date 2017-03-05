@@ -5,9 +5,9 @@ function BudgetController($http, $state, $scope, $rootScope) {
     // Item index page
   $scope.$on('getEvent', function(event, events) {
     console.log('WE GETTING ITEMS!');
-    // console.log(events);
+    console.log(events);
 
-    $http.get(`${server}/users/${$window.localStorage.id}/events/:event_id/items`)
+    $http.get(`${server}/users/:currentUser_id/events/:event_id/items`)
           .then(function(response) {
             console.log(response);
             $state.go('/items', {items: response})
