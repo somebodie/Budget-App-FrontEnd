@@ -36,7 +36,7 @@ function EventController($http, $scope, $window) {
    .then(function(response) {
      console.log(response);
      self.events = response.data;
-     $scope.$emit('userEvent', response);
+     $scope.$broadcast('getEvent', {event: response.data})
    });
  }
 

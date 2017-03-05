@@ -2,27 +2,22 @@ function BudgetController($http, $state, $scope, $rootScope) {
   var self = this;
   var server = 'https://polar-retreat-61013.herokuapp.com/';
 
-
     // Item index page
-  function getItem(currentUser, eventInfo) {
+  $scope.$on('getEvent', function(event, events) {
     console.log('WE GETTING ITEMS!');
-    console.log(eventInfo);
-    console.log(currentUser);
+    // console.log(events);
 
-    self.event = eventInfo;
-    self.currentUser = currentUser;
-
-    $http.get(`${server}/users/${currentUser.id}/events/${eventInfo.id}/items`)
+    $http.get(`${server}/users/${$window.localStorage.id}/events/:event_id/items`)
           .then(function(response) {
             console.log(response);
-            $state.go('/items', {items: response, event: event, currentUser: currentUser})
+            $state.go('/items', {items: response})
           })
-      }
+  })
 
     // Item new post
-    function newItem(eventInfo) {
+    function newItem(event) {
       console.log("I'd like a new item please");
-      self.event = eventInfo;
+      self.event = event;
 
       $http.post(`${server}/users/${$window.localStorage.id}/events/${eventInfo.id}/items`)
             .then(function(response) {
@@ -75,7 +70,7 @@ function BudgetController($http, $state, $scope, $rootScope) {
         }
 
 
-    self.getItem = getItem;
+    // self.getItems = getItems;
     self.newItem = newItem;
     self.showItem = showItem;
     self.createItem = createItem;
