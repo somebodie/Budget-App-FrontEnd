@@ -1,7 +1,11 @@
 function EventController($http, $scope, $window, $state) {
  var self = this;
  self.option = false;
- var server = 'https://afternoon-reaches-46251.herokuapp.com';
+
+//  var server = 'https://afternoon-reaches-46251.herokuapp.com';
+
+ var server = 'https://polar-retreat-61013.herokuapp.com';
+
  // var server = 'http://localhost:3000';
 
  getEvents();
@@ -39,6 +43,9 @@ function EventController($http, $scope, $window, $state) {
    .then(function(response) {
      console.log(response);
      self.events = response.data;
+
+     $scope.$broadcast('getEvent', {events: response})
+
    });
  }
 

@@ -2,7 +2,10 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
   var self = this;
   self.itemId = null;
   self.option = false;
-  var server = 'https://afternoon-reaches-46251.herokuapp.com';
+//   var server = 'https://afternoon-reaches-46251.herokuapp.com';
+
+  var server = 'https://polar-retreat-61013.herokuapp.com';
+
   // var server = 'http://localhost:3000';
 
   console.log($window.localStorage);
