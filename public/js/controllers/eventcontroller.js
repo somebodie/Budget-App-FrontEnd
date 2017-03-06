@@ -73,11 +73,11 @@ function EventController($http, $scope, $window, $state) {
    //display event details div
    $("#eventDetails").css("display", "block");
 
-   $state.go('budget');
+   $state.go('budget', {reload:true});
  }
 
  function closeEventDetails() {
-   let store = $window.localStorage;
+  //  let store = $window.localStorage;
    //hide event details div
    $("#eventDetails").css("display", "none");
 
@@ -87,8 +87,10 @@ function EventController($http, $scope, $window, $state) {
    //make the cards smaller
     $(".eventCards").toggleClass("m6 m4");
 
-    store.removeItem('eventId');
-    store.removeItem('eventBudgetTotal');
+    $window.localStorage.removeItem('eventId');
+    $window.localStorage.removeItem('eventBudgetTotal');
+    console.log($window.localStorage);
+    $state.go('event', {reload: true});
  }
 
 
