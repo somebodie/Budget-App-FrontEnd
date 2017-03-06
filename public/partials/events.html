@@ -1,69 +1,110 @@
-<!-- Acts as partial inside of user.html -->
 <!-- <h1>EVENT PARTIAL!</h1> -->
 
-<!-- {{home}} -->
-<!-- {{event}} -->
+<div class="container">
 
-<!-- <button type="button" name="button" ng-click='budget.newItem()'>NEW ITEM</button>
-<button type="button" name="button" ng-click='budget.showItem()'>SHOW ITEM</button>
-<button type="button" name="button" ng-click='budget.createItem()'>CREATE ITEM</button>
-<button type="button" name="button" ng-click='budget.updateItem()'>UPDATE ITEM</button>
-<button type="button" name="button" ng-click='budget.deleteItem()'>DELETE ITEM</button> -->
+  <div id="eventDetailsCard" class="card">
+    <div class="card-content">
 
-<!-- <h1>EVENT PARTIAL!</h1> -->
+      <!-- X icon to hide event details div -->
+      <ul class="right">
+        <li><i ng-click="event.closeEventDetails()" class="fa fa-times" aria-hidden="true"></i></li>
+      </ul>
 
-<!-- <div class="row"> -->
-       <!-- <div class="col s6 m4">
-         <div class="card blue-grey darken-1">
-           <div class="card-content white-text">
-             <span class="card-title">Card Title</span>
-             <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
-           </div>
-           <div class="card-action">
-             <a href="#">This is a link</a>
-             <a href="#">This is a link</a>
-           </div>
-         </div>
-       </div> -->
-     <!-- </div> -->
-     <!-- <div ng-repeat="item in budget.items">
-       {{item.name}}
-       {{item.cost}}
-     </div> -->
-      <h5>Budget: {{budget.budgetTotal | currency}}</h5>
-      <h5>Remaining: </h5> <h5>{{budget.balance | currency}}</h5>
-     <table>
-        <thead>
-          <tr>
-              <th data-field="id">Item</th>
-              <th data-field="name">Cost</th>
-              <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="item in budget.items">
-            <td>{{item.name}}</td>
-            <td>{{item.cost | currency}} </td>
-            <td ><i ng-click="budget.deleteItem(item.id, item.event_id)" class="fa fa-trash" aria-hidden="true"></i></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- budget status -->
       <p>
-        <h6>cost total: </h6><h6>{{budget.costTotal | currency}}</h6>
-        <br>
-        <i ng-click="budget.AddItemForm()" class="fa fa-plus" aria-hidden="true">  add item</i>
+        <b><h4>{{budget.eventName}}</h4></b>
       </p>
 
+      <div class="divider"></div>
+      <br><br>
+      <p>
+        <b><h6>Budget: {{budget.budgetTotal | currency}}</h6></b>
+      </p>
+      <p>
+        <b><h6>Remaining: {{budget.balance | currency}} </h6></b>
+      </p>
+      <br>
+      <!-- items -->
+       <table>
 
+          <thead>
+            <tr>
+                <th data-field="id">Item</th>
+                <th data-field="name">Cost</th>
+            </tr>
+          </thead>
 
-     <div id="addItem">
-       <form ng-submit="budget.addItem(budget.newItem, home.currentUser)">
-         <input type="text" placeholder="name" ng-model="budget.newItem.name">
-         <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost">
-         <input type="submit" value="submit">
-       </form>
-     </div>
+          <tbody>
+            <tr ng-repeat="item in budget.items">
+              <td>{{item.name}}</td>
+              <td>{{item.cost | currency}} </td>
+              <td ><i ng-click="budget.deleteItem(item.event_id, item.id)" class="fa fa-trash" aria-hidden="true"></i></td>
+              <td><i ng-click="budget.openUpdateItem(item)" class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
 
-     <button ng-click="event.closeEventDetails()">close</button>
+        </table>
+        <br>
+        <!-- display items total cost -->
+        <p>
+          <b><h6>Total cost of event:  {{budget.costTotal | currency}}</h6></b>
+        </p>
+        <br>
+        <p class="icons">
+          <table>
+            <tbody>
+              <tr ng-controller="EventController as event">
+                <td><i ng-click="event.editEventFormToggleShow()" class="fa fa-pencil-square-o" aria-hidden="true">edit event</i></td>
+                <td><i ng-click="budget.AddItemFormToggleShow()" class="fa fa-plus" aria-hidden="true">     add item</i></td>
+                <td><i ng-click="event.addMoneyFormToggleShow()"  class="fa fa-money" aria-hidden="true">    add money</i></td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+
+        <!-- add item form -->
+         <div id="addItem">
+           <div class="divider"></div>
+           <h5>add item</h5>
+           <form ng-submit="budget.addItem(budget.newItem, home.currentUser)">
+             <input type="text" placeholder="name" ng-model="budget.newItem.name" required>
+             <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost" required>
+             <input type="submit" value="submit">
+           </form>
+         </div>
+
+         <!-- add money form -->
+          <div id="addMoney" ng-controller="EventController as event">
+            <div class="divider"></div>
+            <h5>add <i class="fa fa-usd" aria-hidden="true"></i></h5>
+            <form ng-submit="event.editEvent(home.currentUser.id, event.updatedEvent, 'money')">
+              <input type="number" step="0.01" placeholder="$$$" ng-model="event.updatedEvent.money" required>
+              <input type="submit" value="submit">
+            </form>
+          </div>
+
+          <!-- edit  event form -->
+           <div id="editEvent">
+             <div class="divider"></div>
+             <h5>edit event</h5>
+             <form ng-submit="event.editEvent(home.currentUser.id, event.updatedEvent, 'edit')">
+               <input type="text" placeholder="name" ng-model="event.updatedEvent.name">
+               <input type="number" step="0.01" placeholder="budget" ng-model="event.updatedEvent.budget">
+               <input type="submit" value="submit">
+             </form>
+           </div>
+
+           <!-- edit item form -->
+            <div id="editItem">
+              <div class="divider"></div>
+              <h5>edit item</h5>
+              <form ng-submit="budget.updateItem(budget.item)">
+                <input type="text" placeholder="name" ng-model="budget.item.name" required>
+                <input type="number" step="0.01" placeholder="cost" ng-model="budget.item.cost" required>
+                <input type="submit" value="submit">
+              </form>
+            </div>
+    </div>
+  </div>
+
+</div>
