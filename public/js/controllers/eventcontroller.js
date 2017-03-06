@@ -1,8 +1,8 @@
 function EventController($http, $scope, $window, $state) {
  var self = this;
  self.option = false;
- // var server = 'https://polar-retreat-61013.herokuapp.com';
- var server = 'http://localhost:3000';
+ var server = 'https://afternoon-reaches-46251.herokuapp.com';
+ // var server = 'http://localhost:3000';
 
  getEvents();
  console.log($window.localStorage);
@@ -155,12 +155,17 @@ function EventController($http, $scope, $window, $state) {
      .then(function(response){
        console.log(response);
        self.updatedEvent = {}
+      $state.reload('budget');
        getEvents();
        closeEditEventForm();
        $state.reload('budget');
+       $state.reload('event');
+       $state.go('event', {reload: true});
+
        $state.go('budget', {reload: true});
      });
      $state.reload('budget');
+     $state.reload('event');
       $state.go('budget', {reload: true});
      //make the cards bigger
      $(".eventCards").toggleClass("m4 m6");
