@@ -1,20 +1,8 @@
-<!-- Acts as partial inside of user.html -->
-<!-- <h1>EVENT PARTIAL!</h1> -->
-
-<!-- {{home}} -->
-<!-- {{event}} -->
-
-<!-- <button type="button" name="button" ng-click='budget.newItem()'>NEW ITEM</button>
-<button type="button" name="button" ng-click='budget.showItem()'>SHOW ITEM</button>
-<button type="button" name="button" ng-click='budget.createItem()'>CREATE ITEM</button>
-<button type="button" name="button" ng-click='budget.updateItem()'>UPDATE ITEM</button>
-<button type="button" name="button" ng-click='budget.deleteItem()'>DELETE ITEM</button> -->
-
 <!-- <h1>EVENT PARTIAL!</h1> -->
 
 <div class="container">
 
-  <div class="card">
+  <div id="eventDetailsCard" class="card">
     <div class="card-content">
 
       <!-- X icon to hide event details div -->
@@ -51,7 +39,7 @@
               <td>{{item.name}}</td>
               <td>{{item.cost | currency}} </td>
               <td ><i ng-click="budget.deleteItem(item.event_id, item.id)" class="fa fa-trash" aria-hidden="true"></i></td>
-              <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+              <td><i ng-click="budget.openUpdateItem(item)" class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
             </tr>
           </tbody>
 
@@ -60,21 +48,62 @@
         <!-- display items total cost -->
         <p>
           <b><h6>Total cost of event:  {{budget.costTotal | currency}}</h6></b>
-          <br>
         </p>
-        <p>
-          <br><br>
-          <i ng-click="budget.AddItemFormToggleShow()" class="fa fa-plus" aria-hidden="true">  add item</i>
+        <br>
+        <p class="icons">
+          <table>
+            <tbody>
+              <tr ng-controller="EventController as event">
+                <td><i ng-click="event.editEventFormToggleShow()" class="fa fa-pencil-square-o" aria-hidden="true">edit event</i></td>
+                <td><i ng-click="budget.AddItemFormToggleShow()" class="fa fa-plus" aria-hidden="true">     add item</i></td>
+                <td><i ng-click="event.addMoneyFormToggleShow()"  class="fa fa-money" aria-hidden="true">    add money</i></td>
+              </tr>
+            </tbody>
+          </table>
         </p>
 
         <!-- add item form -->
          <div id="addItem">
+           <div class="divider"></div>
+           <h5>add item</h5>
            <form ng-submit="budget.addItem(budget.newItem, home.currentUser)">
-             <input type="text" placeholder="name" ng-model="budget.newItem.name">
-             <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost">
+             <input type="text" placeholder="name" ng-model="budget.newItem.name" required>
+             <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost" required>
              <input type="submit" value="submit">
            </form>
          </div>
+
+         <!-- add money form -->
+          <div id="addMoney" ng-controller="EventController as event">
+            <div class="divider"></div>
+            <h5>add <i class="fa fa-usd" aria-hidden="true"></i></h5>
+            <form ng-submit="event.editEvent(home.currentUser.id, event.updatedEvent, 'money')">
+              <input type="number" step="0.01" placeholder="$$$" ng-model="event.updatedEvent.money" required>
+              <input type="submit" value="submit">
+            </form>
+          </div>
+
+          <!-- edit  event form -->
+           <div id="editEvent">
+             <div class="divider"></div>
+             <h5>edit event</h5>
+             <form ng-submit="event.editEvent(home.currentUser.id, event.updatedEvent, 'edit')">
+               <input type="text" placeholder="name" ng-model="event.updatedEvent.name">
+               <input type="number" step="0.01" placeholder="budget" ng-model="event.updatedEvent.budget">
+               <input type="submit" value="submit">
+             </form>
+           </div>
+
+           <!-- edit item form -->
+            <div id="editItem">
+              <div class="divider"></div>
+              <h5>edit item</h5>
+              <form ng-submit="budget.updateItem(budget.item)">
+                <input type="text" placeholder="name" ng-model="budget.item.name" required>
+                <input type="number" step="0.01" placeholder="cost" ng-model="budget.item.cost" required>
+                <input type="submit" value="submit">
+              </form>
+            </div>
     </div>
   </div>
 
