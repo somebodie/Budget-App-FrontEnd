@@ -57,6 +57,8 @@ function EventController($http, $scope, $window, $state) {
    let store = $window.localStorage;
    store.setItem('eventId', eventDetails.id);
    store.setItem('eventBudgetTotal', parseFloat(eventDetails.budget));
+   store.setItem('eventName', eventDetails.name);
+
    self.name = eventDetails.name;
    self.budget = parseFloat(eventDetails.budget);
    self.eventId = eventDetails.id;
@@ -89,6 +91,8 @@ function EventController($http, $scope, $window, $state) {
 
     $window.localStorage.removeItem('eventId');
     $window.localStorage.removeItem('eventBudgetTotal');
+    $window.localStorage.removeItem('eventName');
+
     console.log($window.localStorage);
     $state.go('event', {reload: true});
  }
