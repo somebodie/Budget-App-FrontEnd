@@ -25,6 +25,7 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
         console.log(response);
         self.items = response.data;
         self.costTotal = 0;
+        self.eventName = $window.localStorage.eventName;
         for(let i = 0; i < self.items.length; i++){
           console.log(self.items[i].cost);
           console.log(parseFloat(self.items[i].cost));
@@ -33,6 +34,8 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
 
         self.budgetTotal = parseFloat(eventBudgetTotal).toFixed(2);
         self.balance = self.budgetTotal - self.costTotal;
+        $window.localStorage.setItem('balance', self.balance);
+        console.log(localStorage);
         console.log(self.balance);
 
         console.log(self.costTotal);
@@ -109,15 +112,22 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
 
 
     // Item update page
-    function deleteItem(itemId, eventId) {
+    function deleteItem(eventId, itemId) {
       console.log("BYE BYE ITEM!");
+      console.log(eventId);
+      console.log(itemId);
+      console.log(localStorage);
       $http.delete(`${server}/items/${itemId}`)
       .then(function(response) {
         console.log(response);
+        // var newBalance = balance + parseFloat(item.cost);
+        // store.setItem('eventBudgetTotal', parseFloat(eventDetails.budget));
         getItems(eventId, $window.localStorage.eventBudgetTotal);
         // $state.go('/items')
-      })
+      });
     }
+
+
 
 
     // self.getItems = getItems;
