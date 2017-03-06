@@ -4,6 +4,7 @@ function BudgetController($http, $state, $scope, $rootScope, $window) {
   var server = 'http://localhost:3000';
 
   self.option = false;
+  console.log($window.localStorage);
   getItems($window.localStorage.eventId, $window.localStorage.eventBudgetTotal );
   //   // Item index page
   // $scope.$on('getEvent', function(event, events) {
