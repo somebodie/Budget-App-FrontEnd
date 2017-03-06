@@ -12,49 +12,70 @@
 
 <!-- <h1>EVENT PARTIAL!</h1> -->
 
-<!-- budget status -->
-<h5>Budget: {{budget.budgetTotal | currency}}</h5>
-<h5>Remaining: {{budget.balance | currency}} </h5>
+<div class="container">
 
-<!-- items -->
- <table>
+  <div class="card">
+    <div class="card-content">
 
-    <thead>
-      <tr>
-          <th data-field="id">Item</th>
-          <th data-field="name">Cost</th>
-          <th></th>
-      </tr>
-    </thead>
+      <!-- X icon to hide event details div -->
+      <ul class="right">
+        <li><i ng-click="event.closeEventDetails()" class="fa fa-times" aria-hidden="true"></i></li>
+      </ul>
 
-    <tbody>
-      <tr ng-repeat="item in budget.items">
-        <td>{{item.name}}</td>
-        <td>{{item.cost | currency}} </td>
-        <td ><i ng-click="budget.deleteItem(item.id, item.event_id)" class="fa fa-trash" aria-hidden="true"></i></td>
-      </tr>
-    </tbody>
+      <!-- budget status -->
+      <p>
+        <b><h4>{{budget.eventName}}</h4></b>
+      </p>
 
-  </table>
+      <div class="divider"></div>
+      <br><br>
+      <p>
+        <b><h6>Budget: {{budget.budgetTotal | currency}}</h6></b>
+      </p>
+      <p>
+        <b><h6>Remaining: {{budget.balance | currency}} </h6></b>
+      </p>
+      <br>
+      <!-- items -->
+       <table>
 
-  <!-- display items total cost -->
-  <p>
-    <b><h6>Total cost of event:  {{budget.costTotal | currency}}</h6></b>
-    <br>
-  </p>
-  <p>
-    <br>
-    <i ng-click="budget.AddItemFormToggleShow()" class="fa fa-plus" aria-hidden="true">  add item</i>
-  </p>
+          <thead>
+            <tr>
+                <th data-field="id">Item</th>
+                <th data-field="name">Cost</th>
+            </tr>
+          </thead>
 
-  <!-- button to hide event details div -->
-  <button ng-click="event.closeEventDetails()">close</button>
+          <tbody>
+            <tr ng-repeat="item in budget.items">
+              <td>{{item.name}}</td>
+              <td>{{item.cost | currency}} </td>
+              <td ><i ng-click="budget.deleteItem(item.event_id, item.id)" class="fa fa-trash" aria-hidden="true"></i></td>
+              <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
 
-  <!-- add item form -->
-   <div id="addItem">
-     <form ng-submit="budget.addItem(budget.newItem, home.currentUser)">
-       <input type="text" placeholder="name" ng-model="budget.newItem.name">
-       <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost">
-       <input type="submit" value="submit">
-     </form>
-   </div>
+        </table>
+        <br>
+        <!-- display items total cost -->
+        <p>
+          <b><h6>Total cost of event:  {{budget.costTotal | currency}}</h6></b>
+          <br>
+        </p>
+        <p>
+          <br><br>
+          <i ng-click="budget.AddItemFormToggleShow()" class="fa fa-plus" aria-hidden="true">  add item</i>
+        </p>
+
+        <!-- add item form -->
+         <div id="addItem">
+           <form ng-submit="budget.addItem(budget.newItem, home.currentUser)">
+             <input type="text" placeholder="name" ng-model="budget.newItem.name">
+             <input type="number" step="0.01" placeholder="cost" ng-model="budget.newItem.cost">
+             <input type="submit" value="submit">
+           </form>
+         </div>
+    </div>
+  </div>
+
+</div>
