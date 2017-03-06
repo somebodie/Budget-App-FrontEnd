@@ -16,6 +16,10 @@ div#eventDetails.col.s4 {
   display: none;
 }
 
+#closeEventDetails {
+  text-align: right;
+}
+
 /*makes footer stick to bottom */
 body {
    display: flex;
