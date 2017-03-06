@@ -16,8 +16,30 @@ div#eventDetails.col.s4 {
   display: none;
 }
 
+#addMoney {
+  display: none;
+}
+
+#editEvent {
+  display: none;
+}
+
+#editItem {
+  display: none;
+}
+
 #closeEventDetails {
   text-align: right;
+}
+
+#eventDetailsCard {
+  margin-top: 6rem;
+}
+
+p.icons {
+  display: inline;
+  padding: 5px 0 5px;
+  margin-top: 5px;
 }
 
 /*makes footer stick to bottom */
@@ -39,10 +61,7 @@ body {
    width: 100%;
  }
 
- /*nav .brand-logo {
-   color: teal;
- }*/
-
+/* credits: https://www.w3schools.com/w3css/w3css_modal.asp*/
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
